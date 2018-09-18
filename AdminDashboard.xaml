@@ -1,0 +1,677 @@
+﻿<Controls:MetroWindow x:Class="Advantis.AdminDashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Advantis"
+        mc:Ignorable="d"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="MainWindow" Height="768" Width="1366" WindowStyle="None"  WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" IgnoreTaskbarOnMaximize="True" ShowInTaskbar="False" ShowTitleBar="False" IsCloseButtonEnabled="True" IsMinButtonEnabled="False" IsMaxRestoreButtonEnabled="True" ShowCloseButton="False">
+    <!--start Window Styles-->
+    <Controls:MetroWindow.Resources>
+        <!--icon images-->
+        <Image x:Key="DashboardIcon" Margin="100" Source="Images/Icon/DashboardIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="AdminUserIcon" Margin="100" Source="Images/Icon/AdminUserIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="MenuItemAdminDb" Margin="100" Source="Images/Icon/MenuIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="UserManagement" Margin="100" Source="Images/Icon/UserMnagementicon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ReportManagement" Margin="100" Source="Images/Icon/ReportIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="BarcodeManagement" Margin="100" Source="Images/Icon/BarcodeIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="UploadDataIcon" Margin="100" Source="Images/Icon/UploadIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ProgressIcon" Margin="100" Source="Images/Icon/ProgressIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LogoutAdminIcon" Margin="100" Source="Images/Icon/LogoutIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <!--Icon Select Button-->
+        <Image x:Key="SelectUserManagement" Margin="100" Source="Images/Icon/SelectUserMnagementicon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="SelectReportManagement" Margin="100" Source="Images/Icon/SelectReportIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="SelectBarcodeManagement" Margin="100" Source="Images/Icon/SelectBarcodeIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="SelectUploadDataIcon" Margin="100" Source="Images/Icon/SelectUploadIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="SelectProgressIcon" Margin="100" Source="Images/Icon/SelectProgressIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+
+
+        <!--Left Fanal fly out window menu icon-->
+        <Image x:Key="LeftUserManagement" Margin="100" Source="Images/Icon/UserMnagementicon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftReportManagement" Margin="100" Source="Images/Icon/ReportIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftBarcodeManagement" Margin="100" Source="Images/Icon/BarcodeIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftUploadDataIcon" Margin="100" Source="Images/Icon/UploadIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftProgressIcon" Margin="100" Source="Images/Icon/ProgressIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftLogoutAdminIcon" Margin="100" Source="Images/Icon/LogoutIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+
+        <!--remove button mouse over effect-->
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Arrow" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="false">
+                                <Setter Property="Opacity" Value="1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Controls:MetroWindow.Resources>
+    <!--//end Window Styles-->
+    <!--******************************************************************Flyout window******************************************************************-->
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl >
+            <Controls:Flyout x:Name="navigationMenu" Header="Dashboard" x:FieldModifier="public"  Position="Left" Width="200" AnimateOpacity="True" Opacity="0.98" IsOpen="False" RenderTransformOrigin="0.5,0.5" Foreground="White" Background="#FF06202D">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="713*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"></ColumnDefinition>
+                            <ColumnDefinition Width="40*"></ColumnDefinition>
+                            <ColumnDefinition Width="12*"></ColumnDefinition>
+                            <ColumnDefinition Width="150*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="363*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <!--Flyout user Management-->
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button x:Name="btnLeftUserManagement" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnLeftUserManagement_Click" >
+                                    <DynamicResource ResourceKey="LeftUserManagement"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="1">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock x:Name="txtLeftUserManagement" Padding="0,12,0,12" Cursor="Hand" FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Users" MouseLeftButtonDown="txtLeftUserManagement_Clik"/>
+                            </Viewbox>
+                        </Grid>
+                        <!--//Flyout user Management-->
+                        <!--Flyout Report Management-->
+                        <Grid Grid.Column="1" Grid.Row="3">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button x:Name="btnLeftReportManagement" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="LeftReportManagement"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="3">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock x:Name="txtLeftReportManagement" Padding="0,12,0,12" Cursor="Hand" FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Reports" />
+                            </Viewbox>
+                        </Grid>
+                        <!--//Flyout Report Management-->
+                        <!--Flyout Barcode Management-->
+                        <Grid Grid.Column="1" Grid.Row="5">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button x:Name="btnLeftBarcodeManagement" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="LeftBarcodeManagement"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="5">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock x:Name="txtLeftBarcodeManagement" Padding="0,12,0,12" Cursor="Hand" FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Barcodes" />
+                            </Viewbox>
+                        </Grid>
+                        <!--//Flyout Barcode Management-->
+                        <!--Flyout Upload Data Management-->
+                        <Grid Grid.Column="1" Grid.Row="7">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button x:Name="btnLeftUploadDataIcon" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="LeftUploadDataIcon"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="7">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock x:Name="txtLeftUploadDataIcon" Padding="0,12,0,12" Cursor="Hand" FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Upload Data" />
+                            </Viewbox>
+                        </Grid>
+                        <!--//Flyout Upload Data Management-->
+                        <!--Flyout Progress Management-->
+                        <Grid Grid.Column="1" Grid.Row="9">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button x:Name="btnLeftProgressIcon" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="LeftProgressIcon"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="9">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock x:Name="txtLeftProgressIcon" Padding="0,12,0,12" Cursor="Hand" FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Progress" />
+                            </Viewbox>
+                        </Grid>
+                        <!--//Flyout Progress Management-->
+                        <!--User Logout-->
+                        <Grid Grid.Column="1" Grid.Row="11">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button x:Name="btnLeftLogoutAdmidnIcon" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnLeftLogoutAdmidnIcon_Click">
+                                    <DynamicResource ResourceKey="LeftLogoutAdminIcon"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="11">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock x:Name="txtLeftLogoutAdmidnIcon" Padding="0,12,0,12" Cursor="Hand" FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Logout" MouseLeftButtonDown="txtLeftLogoutAdmidnIcon_Click"/>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                    <!--User Logout-->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"></ColumnDefinition>
+                            <ColumnDefinition Width="120*"></ColumnDefinition>
+                            <ColumnDefinition Width="64*"></ColumnDefinition>
+                            <ColumnDefinition Width="8*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Label Content="© copyright by"  Padding="0,12,0,12"  FontSize="35px"  FontWeight="Medium"  Foreground="White"  />
+                        </Viewbox>
+                        <Viewbox Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <Label Content="Nikini" Padding="0,12,0,12" FontFamily="Arial" FontSize="35px"  FontWeight="ExtraBold" VerticalAlignment="Center"  Foreground="Red"  Width="auto"  />
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+    <!--******************************************************************// end Flyout window******************************************************************-->
+    <!--start admin dashboard window-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="768*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1366*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+           
+            <!--******************************************************************start top title bar bgColor: #397ea5******************************************************************-->
+            <Grid Grid.Row="0" Background="#397ea5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="46*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1315*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button x:Name="btnDashboardIcon"  Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072">
+                        <DynamicResource ResourceKey="DashboardIcon"/>
+                    </Button>
+                </Viewbox>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="280*"></ColumnDefinition>
+                        <ColumnDefinition Width="877*"></ColumnDefinition>
+                        <ColumnDefinition Width="55*"></ColumnDefinition>
+                        <ColumnDefinition Width="46*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"></RowDefinition>
+                            <RowDefinition Height="24*"></RowDefinition>
+                            <RowDefinition Height="8*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <TextBlock x:Name="txtTopMenuTitle"  FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Dashboard" FontFamily="verdana"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"></RowDefinition>
+                            <RowDefinition Height="24*"></RowDefinition>
+                            <RowDefinition Height="8*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Viewbox Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" >
+                            <TextBlock x:Name="txtTopLoginAdminDisplayText" Cursor="Hand" FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Admin" MouseLeftButtonDown="txtTopLoginAdminDisplayText_Click"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Button x:Name="btnAdminUserIcon" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnAdminUserIcon_Click" >
+                                <DynamicResource ResourceKey="AdminUserIcon"/>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                    <!--(Add icon Metro)////<Viewbox Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                        <Rectangle  Height="35" Margin="10" Stroke="White" VerticalAlignment="Top" Width="35" Fill="White">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Visual="{StaticResource appbar_user}" Stretch="Fill"/>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Viewbox>-->
+                </Grid>
+            </Grid>
+            <!--******************************************************************//end top title bar******************************************************************-->
+            <!--Start Dashboard Body section bgColor: #ffffff-->
+            <Grid Grid.Row="1" Background="#ffffff" MouseLeftButtonUp="GridHideLoginSideButton_Click">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                    <ColumnDefinition Width="1320*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!--******************************************************************Start Navigation Side Menu bgColor: #06202d******************************************************************-->
+                <Grid x:Name="GridSideMenuBar"  Grid.Column="0" Background="#06202d">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"></ColumnDefinition>
+                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                        <ColumnDefinition Width="8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="543*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnMenuItemAdminDb" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnMenuItemAdminDb_Click" >
+                                <DynamicResource ResourceKey="MenuItemAdminDb"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnUserManagement" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnUserManagement_Click" >
+                                <DynamicResource ResourceKey="UserManagement"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnReportManagement" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnReportManagement_Click" >
+                                <DynamicResource ResourceKey="ReportManagement"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnBarcodeManagement" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                <DynamicResource ResourceKey="BarcodeManagement"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnUploadDataIcon" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                <DynamicResource ResourceKey="UploadDataIcon"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnProgressIcon" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                <DynamicResource ResourceKey="ProgressIcon"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="13" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnLogoutAdmidnIcon" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072"  Click="btnLogoutAdmidnIcon_Click" >
+                                <DynamicResource ResourceKey="LogoutAdminIcon"/>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+                <!--******************************************************************//Endt Navigation Side Menu******************************************************************-->
+                <!--Main DashboardBackground-->
+               
+                <!--//Main DashboardBackground-->
+                <Grid  Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80*"></RowDefinition>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        <RowDefinition Height="633*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!-- Main Dashboard top Logo Bar bgColor: #e5ebf2-->
+                    <!--******************************************************************Transperent Header******************************************************************-->
+                    <Grid x:Name="GridDashboardHeaderBackgroundColorHidden" Visibility="Visible" Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                            <ColumnDefinition Width="300*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="805*"></ColumnDefinition>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--Logo & Title section-->
+                        <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0" Width="auto">
+                            <Image Height="auto" Width="auto"  Source="Images/ADVANTIS-LOGOS1.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                        </Viewbox>
+                        <Viewbox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left"  >
+                            <TextBlock  Cursor="Hand" FontSize="35px" Padding="20"  FontWeight="Bold"  Foreground="Black" Text="Goods Handling and Management System"/>
+                        </Viewbox>
+                        <!--//Logo & Title section-->
+                        <!--Logout section-->
+                        <Grid Grid.Column="4" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30*"></RowDefinition>
+                                <RowDefinition Height="40*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="GridLogoutAdminText" Visibility="Hidden" Cursor="Hand" Grid.Row="0" Background="White" MouseLeftButtonDown="GridLogoutAdminText_Click" HorizontalAlignment="Right" Width="101">
+                                <!--<Viewbox VerticalAlignment="Top" Margin="0" Width="auto" HorizontalAlignment="Right">
+                                    <Image Height="auto" Width="auto" Source="Images/Background/LogoutButtonBackground.jpg" Margin="0" ></Image>
+                                </Viewbox>-->
+                                <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="GridLogoutAdminText_Click" >
+                                    <TextBlock x:Name="txtLogoutAdminText" Cursor="Hand"  FontSize="35px" Padding="20"  FontWeight="Bold"  Foreground="Black" Text="Logout"/>
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                        <!--// Logout section-->
+                    </Grid>
+                    <!-- //Main Dashboard top Logo Bar bgColor: #e5ebf2-->
+                    <!--******************************************************************BackGround Color Header******************************************************************-->
+                    <!-- Main Dashboard top Logo Bar bgColor: #e5ebf2-->
+                    <Grid x:Name="GridAllHeaderBackgroundColorVisible" Background="#e5ebf2" Visibility="Hidden" Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                            <ColumnDefinition Width="300*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="805*"></ColumnDefinition>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--Logo & Title section-->
+                        <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0" Width="auto">
+                            <Image Height="auto" Width="auto"  Source="Images/ADVANTIS-LOGOS1.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                        </Viewbox>
+                        <Viewbox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left"  >
+                            <TextBlock   FontSize="35px" Padding="20"  FontWeight="Bold"  Foreground="Black" Text="Goods Handling and Management System"/>
+                        </Viewbox>
+                        <!--//Logo & Title section-->
+                        <!--Logout section-->
+                        <Grid x:Name="GridAllLogoutAdminText" Visibility="Hidden" MouseLeftButtonDown="GridAllLogoutAdminText_Click" Grid.Column="4">
+                            <!--grid Shedow effect-->
+                            <Grid.Effect>
+                                <DropShadowEffect BlurRadius="15" Direction="-90" Color="Gray" RenderingBias="Quality" ShadowDepth="2"  Opacity="0.5"/>
+                            </Grid.Effect>
+                            <!--//grid Shedow effect-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30*"></RowDefinition>
+                                <RowDefinition Height="40*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid  Visibility="Visible" Cursor="Hand" Grid.Row="0" Background="White" HorizontalAlignment="Left" Width="100">
+                                <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="GridAllLogoutAdminText_Click" >
+                                    <TextBlock x:Name="txtAllLogoutAdminText" Cursor="Hand"  FontSize="35px" Padding="20"  FontWeight="Bold"  Foreground="Black" Text="Logout"/>
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                        <!--// Logout section-->
+                    </Grid>
+                    <!-- //Main Dashboard top Logo Bar bgColor: #e5ebf2-->
+                    <!--******************************************************************DashBoard Pannel******************************************************************-->
+                    <!--start admin dashboard main grid section (653)-->
+                    <Grid x:Name="GridAdminDashboardMainMenuSection" Visibility="Visible" Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="63*"></RowDefinition>
+                            <RowDefinition Height="240*"></RowDefinition>
+                            <RowDefinition Height="30*"></RowDefinition>
+                            <RowDefinition Height="240*"></RowDefinition>
+                            <RowDefinition Height="132*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200*"></ColumnDefinition>
+                                <ColumnDefinition Width="280*"></ColumnDefinition>
+                                <ColumnDefinition Width="40*"></ColumnDefinition>
+                                <ColumnDefinition Width="280*"></ColumnDefinition>
+                                <ColumnDefinition Width="40*"></ColumnDefinition>
+                                <ColumnDefinition Width="280*"></ColumnDefinition>
+                                <ColumnDefinition Width="200*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <!--User Management Section(200*350)-->
+                            <Grid Grid.Column="1"  Cursor="Hand">
+                                <!--grid Shedow effect-->
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                </Grid.Effect>
+                                <!--//grid Shedow effect-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                    <RowDefinition Height="115*"></RowDefinition>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Background="#87cb00">
+                                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Label Content="Users" FontSize="22"  FontWeight="Medium"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="1" Background="#87cb00">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Width="auto">
+                                        <Image Height="auto" Width="auto"  Source="Images/Icon/BlackUserMnagementicon.png" Margin="30" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="2" Background="#659a00">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200*"></ColumnDefinition>
+                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Label Content="Manage Users" FontSize="20"  FontWeight="Medium"   Foreground="#ffffff" Padding="12" Width="auto"  />
+                                    </Viewbox>
+                                    <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Rectangle  Height="35" Margin="25" Stroke="White" VerticalAlignment="Top" Width="35" Fill="White">
+                                            <Rectangle.OpacityMask>
+                                                <VisualBrush Visual="{StaticResource appbar_arrow_right}" Stretch="Fill"/>
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+                            <!--//User Management Section-->
+                            <!--Report Management Section (200*350)-->
+                            <Grid Grid.Column="3"  Cursor="Hand">
+                                <!--grid Shedow effect-->
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                </Grid.Effect>
+                                <!--//grid Shedow effect-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                    <RowDefinition Height="115*"></RowDefinition>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Background="#00baff">
+                                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Label Content="Reports" FontSize="22"  FontWeight="Medium"   Foreground="#ffffff" Padding="5" Width="auto" />
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="1" Background="#00baff">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Width="auto">
+                                        <Image Height="auto" Width="auto"  Source="Images/Icon/BlackReportIcon.png" Margin="30" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="2" Background="#009ad7">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200*"></ColumnDefinition>
+                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Label Content="Manage Reports" FontSize="20"  FontWeight="Medium"   Foreground="#ffffff" Padding="12" Width="auto"  />
+                                    </Viewbox>
+                                    <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Rectangle  Height="35" Margin="25" Stroke="White" VerticalAlignment="Top" Width="35" Fill="White">
+                                            <Rectangle.OpacityMask>
+                                                <VisualBrush Visual="{StaticResource appbar_arrow_right}" Stretch="Fill"/>
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+                            <!--//Report Management Section-->
+                            <!--Barcode Management Section (200*350)-->
+                            <Grid Grid.Column="5"  Cursor="Hand">
+                                <!--grid Shedow effect-->
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                </Grid.Effect>
+                                <!--//grid Shedow effect-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                    <RowDefinition Height="115*"></RowDefinition>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Background="#efb400">
+                                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Label Content="Barcodes" FontSize="22"  FontWeight="Medium"   Foreground="#ffffff" Padding="5" Width="auto" />
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="1" Background="#efb400">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Width="auto">
+                                        <Image Height="auto" Width="auto"  Source="Images/Icon/BlackBarcodeIcon.png" Margin="30" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="2" Background="#d79300">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200*"></ColumnDefinition>
+                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Label Content="Manage Barcodes" FontSize="20"  FontWeight="Medium"   Foreground="#ffffff" Padding="12" Width="auto"  />
+                                    </Viewbox>
+                                    <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Rectangle  Height="35" Margin="25" Stroke="White" VerticalAlignment="Top" Width="35" Fill="White">
+                                            <Rectangle.OpacityMask>
+                                                <VisualBrush Visual="{StaticResource appbar_arrow_right}" Stretch="Fill"/>
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+                            <!--//Barcode Management Section-->
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="360*"></ColumnDefinition>
+                                <ColumnDefinition Width="280*"></ColumnDefinition>
+                                <ColumnDefinition Width="40*"></ColumnDefinition>
+                                <ColumnDefinition Width="280*"></ColumnDefinition>
+                                <ColumnDefinition Width="360*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <!--Barcode Management Section (200*350)-->
+                            <Grid Grid.Column="1"  Cursor="Hand">
+                                <!--grid Shedow effect-->
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                </Grid.Effect>
+                                <!--//grid Shedow effect-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                    <RowDefinition Height="115*"></RowDefinition>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Background="#4f7ed5">
+                                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Label Content="Upload Data" FontSize="22"  FontWeight="Medium"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="1" Background="#4f7ed5">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Width="auto">
+                                        <Image Height="auto" Width="auto"  Source="Images/Icon/BlackUploadIcon.png" Margin="30" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="2" Background="#375894">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200*"></ColumnDefinition>
+                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Label Content="Manage Upload Data" FontSize="20"  FontWeight="Medium"   Foreground="#ffffff" Padding="12" Width="auto"  />
+                                    </Viewbox>
+                                    <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Rectangle  Height="35" Margin="25" Stroke="White" VerticalAlignment="Top" Width="35" Fill="White">
+                                            <Rectangle.OpacityMask>
+                                                <VisualBrush Visual="{StaticResource appbar_arrow_right}" Stretch="Fill"/>
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+                            <!--//Barcode Management Section-->
+                            <!--Barcode Management Section (200*350)-->
+                            <Grid Grid.Column="3" Cursor="Hand">
+                                <!--grid Shedow effect-->
+                                <Grid.Effect>
+                                    <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                </Grid.Effect>
+                                <!--//grid Shedow effect-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                    <RowDefinition Height="115*"></RowDefinition>
+                                    <RowDefinition Height="35*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Background="#ff5697">
+                                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Label Content="Progress" FontSize="22"  FontWeight="Medium"   Foreground="#ffffff" Padding="5" Width="auto" />
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="1" Background="#ff5697">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" Width="auto">
+                                        <Image Height="auto" Width="auto"  Source="Images/Icon/BlackProgressIcon.png" Margin="30" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                    </Viewbox>
+                                </Grid>
+                                <Grid Grid.Row="2" Background="#d34579">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200*"></ColumnDefinition>
+                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Label Content="View Progress" FontSize="20"  FontWeight="Medium"   Foreground="#ffffff" Padding="12" Width="auto"  />
+                                    </Viewbox>
+                                    <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                        <Rectangle  Height="35" Margin="25" Stroke="White" VerticalAlignment="Top" Width="35" Fill="White">
+                                            <Rectangle.OpacityMask>
+                                                <VisualBrush Visual="{StaticResource appbar_arrow_right}" Stretch="Fill"/>
+                                            </Rectangle.OpacityMask>
+                                        </Rectangle>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+                            <!--//Barcode Management Section-->
+                        </Grid>
+                    </Grid>
+                    <!--start admin dashboard main grid section-->
+                    <!--******************************************************************User Management Panel******************************************************************-->
+                    <!--Strat Admin User Management section-->
+                    <Grid x:Name="GridUserManagementPanelStart" Visibility="Hidden" Grid.Row="2" >
+                        <Label Content="User Management" FontSize="100"  FontWeight="Medium"   Padding="12" Width="auto"  />
+                    </Grid>
+                    <!--//Strat Admin User Management section-->
+                    <!--******************************************************************Reports Management Panel******************************************************************-->
+                    <!--Strat Admin Reports Management section-->
+                    <Grid x:Name="GridReportsManagementPanelStart" Visibility="Hidden" Grid.Row="2" >
+                        <Label Content="Reports Management" FontSize="100"  FontWeight="Medium"   Padding="12" Width="auto"  />
+                    </Grid>
+                    <!--//Strat Admin Reports Management section-->
+                    <!--******************************************************************Barcodes Management Panel******************************************************************-->
+                    <!--Strat Admin Barcodes Management section-->
+                    <Grid x:Name="GridBarcodesManagementPanelStart" Visibility="Hidden" Grid.Row="2" >
+                        <Label Content="Barcodes Management" FontSize="100"  FontWeight="Medium"   Padding="12" Width="auto"  />
+                    </Grid>
+                    <!--//Strat Admin Barcodes Management section-->
+                    <!--******************************************************************Upload Data Management Panel******************************************************************-->
+                    <!--Strat Admin Upload Data Management section-->
+                    <Grid x:Name="GridUploadDataManagementPanelStart" Visibility="Hidden" Grid.Row="2" >
+                        <Label Content="Upload Data Management" FontSize="100"  FontWeight="Medium"   Padding="12" Width="auto"  />
+                    </Grid>
+                    <!--//Strat Admin Upload Data Management section-->
+                </Grid>
+            </Grid>
+            <!--//End Dashboard Body section-->
+    </Grid>
+    <!--//end admin dashboard window-->
+</Controls:MetroWindow>

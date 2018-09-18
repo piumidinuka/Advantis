@@ -1,0 +1,454 @@
+﻿<Controls:MetroWindow x:Class="Advantis.userManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Advantis"
+        mc:Ignorable="d"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="userManagement" Height="768" Width="1366" WindowStyle="None"  WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IgnoreTaskbarOnMaximize="True" ShowInTaskbar="False" ShowTitleBar="False" IsCloseButtonEnabled="True" IsMinButtonEnabled="False" IsMaxRestoreButtonEnabled="False" ShowCloseButton="True">
+
+
+    <Controls:MetroWindow.Resources>
+
+        <Image x:Key="DisabledAdminDashboard" Source="Images/DisabledAdminDashboardIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="AdminDashboard" Source="Images/adminDashboardIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledAddUser" Source="Images/DisabledAddUserIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="AddUser" Source="Images/addUserIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+
+        <!--remove button mouse over effect-->
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Arrow" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="false">
+                                <Setter Property="Opacity" Value="1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Set Column Heder Text Letter Case-->
+        <Style x:Key="MyColumnHeader"  BasedOn="{StaticResource MetroDataGridColumnHeader}"  TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Controls:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+        </Style>
+        <Style x:Key="DataGridRowStyle" TargetType="{x:Type DataGridCell}" >
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="#1a222f"/>
+                    <Setter  Property="Background" Value="#e5ebf2"/>
+                    <Setter Property="BorderBrush" Value="#fff"/>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Padding" Value="10"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Controls:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+                <ColumnDefinition Width="1326*"></ColumnDefinition>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"></RowDefinition>
+                    <RowDefinition Height="60*"></RowDefinition>
+                    <RowDefinition Height="48*"></RowDefinition>
+                    <RowDefinition Height="100*"></RowDefinition>
+                    <RowDefinition Height="20*"></RowDefinition>
+                    <RowDefinition Height="500*"></RowDefinition>
+                    <RowDefinition Height="20*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="1"  VerticalAlignment="Bottom" HorizontalAlignment="Center"   Width="auto" Height="auto">
+                    <Label FontSize="50"  FontWeight="SemiBold" Padding="15,25,15,5" Foreground="#1a222f">User Management</Label>
+                </Viewbox>
+                <Grid Grid.Row="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="263*"></ColumnDefinition>
+                        <ColumnDefinition Width="400*"></ColumnDefinition>
+                        <ColumnDefinition Width="20*"></ColumnDefinition>
+                        <ColumnDefinition Width="400*"></ColumnDefinition>
+                        <ColumnDefinition Width="263*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid x:Name="AdminDashboardGrid"  Grid.Column="1"  Cursor="Hand"  MouseLeftButtonDown="AdminDashboard_Click">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45*"></RowDefinition>
+                            <RowDefinition Height="5*"></RowDefinition>
+                            <RowDefinition Height="100*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label x:Name="AdminDashboardFeild" Width="260" FontSize="50"  FontWeight="SemiBold" Foreground="Gray">Dashboard</Label>
+                        </Viewbox>
+                        <Viewbox Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Button x:Name="AdminDashboard" Style="{StaticResource MyButton}" Cursor="Hand"  IsEnabled="True"  BorderBrush="Transparent" BorderThickness="0" Focusable="False" Background="{x:Null}" Click="AdminDashboard_Click"  >
+                                <DynamicResource ResourceKey="AdminDashboard"/>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid  x:Name="AddUserGrid" Grid.Column="3"   Cursor="Hand"  MouseLeftButtonDown="AddUser_Click">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45*"></RowDefinition>
+                            <RowDefinition Height="5*"></RowDefinition>
+                            <RowDefinition Height="100*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Viewbox Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label x:Name="AddUserFeild" Width="225" FontSize="50"  FontWeight="SemiBold" Foreground="LightGray">Add User</Label>
+                        </Viewbox>
+                        <Viewbox Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Button x:Name="AddUser" Style="{StaticResource MyButton}" Cursor="Hand" IsEnabled="True"  BorderBrush="Transparent" BorderThickness="0" Focusable="False" Background="{x:Null}"  Click="AddUser_Click">
+                                <DynamicResource ResourceKey="DisabledAddUser"/>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+                <!--Admin Dashboard-->
+                <Grid x:Name="AdminDashboardGridVisibility" Grid.Row="5"  Visibility="visible" Background="#f8f8f8">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="460*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="930*"></ColumnDefinition>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="26*"></ColumnDefinition>
+                            <ColumnDefinition Width="300*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="1" Grid.Column="1" Background="White"></Grid>
+                        <Grid Grid.Row="1" Grid.Column="3" Background="White"></Grid>
+                        <Grid Grid.Row="1" Grid.Column="2" Height="460" VerticalAlignment="Top" HorizontalAlignment="Right" Width="806">
+                            <Viewbox  VerticalAlignment="Top" Height="auto" Margin="-132,0,0,0">
+                                <DataGrid x:Name="g1" FontWeight="Medium" FontSize="360" ColumnHeaderStyle="{StaticResource MyColumnHeader}" CellStyle ="{StaticResource DataGridRowStyle}" Background="White" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected"   Height="11252"  SelectionMode="Single"   GridLinesVisibility="All"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"  Foreground="#FF303D50" Width="23028" Padding="0,150,0,0">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn x:Name="EmployeeName"  Header="Name" Binding="{Binding Path=empName}" Width="6500"/>
+                                        <DataGridTextColumn x:Name="UserEMPNo"  Header="EMP No." Binding="{Binding Path=empNo}" Width="5000"/>
+                                        <DataGridTextColumn x:Name="UserRole"  Header="User Role" Binding="{Binding Path=role}" Width="5000"/>
+                                        <DataGridTextColumn x:Name="AdminAction"  Header="Action" Width="6528"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60*"></RowDefinition>
+                                <RowDefinition Height="100*"></RowDefinition>
+                                <RowDefinition Height="10*"></RowDefinition>
+                                <RowDefinition Height="100*"></RowDefinition>
+                                <RowDefinition Height="25*"></RowDefinition>
+                                <RowDefinition Height="60*"></RowDefinition>
+                                <RowDefinition Height="20*"></RowDefinition>
+                                <RowDefinition Height="60*"></RowDefinition>
+                                <RowDefinition Height="25*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0"  >
+                                <Viewbox   VerticalAlignment="Bottom" HorizontalAlignment="Center"   Width="auto" Height="auto">
+                                    <Label FontSize="50"  FontWeight="SemiBold" Padding="0,30,0,40">Process States</Label>
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Row="2"  ></Grid>
+                            <Grid Grid.Row="1"  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="13*"></RowDefinition>
+                                    <RowDefinition Height="87*"></RowDefinition>
+                                    <RowDefinition Height="30*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="120*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="120*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Viewbox   HorizontalAlignment="Center"   VerticalAlignment="Center" >
+                                        <Image Source="Images/sucsessCircule.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                                    </Viewbox>
+                                    <Viewbox   HorizontalAlignment="Center"   VerticalAlignment="Center" >
+                                        <TextBlock x:Name="SuccesItem" Width="auto" Height="auto" FontSize="10" Padding="9" Foreground="White" >48%</TextBlock>
+                                    </Viewbox>
+                                </Grid>
+                                <Viewbox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="auto" Width="auto">
+                                    <TextBlock  FontSize="20"  FontWeight="Medium" VerticalAlignment="Center" Foreground="#FF514F4F" Padding="5">Success</TextBlock>
+                                </Viewbox>
+                                <Grid Grid.Row="1" Grid.Column="3">
+                                    <Viewbox   HorizontalAlignment="Center"   VerticalAlignment="Center" >
+                                        <Image Source="Images/rejectedCircule.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                                    </Viewbox>
+                                    <Viewbox   HorizontalAlignment="Center"   VerticalAlignment="Center" >
+                                        <TextBlock x:Name="RejectItem" Width="auto" Height="auto" FontSize="10" Padding="9" Foreground="White" >0.5%</TextBlock>
+                                    </Viewbox>
+                                </Grid>
+                                <Viewbox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="auto" Width="auto">
+                                    <TextBlock  FontSize="20"  FontWeight="Medium" VerticalAlignment="Center" Foreground="#FF514F4F" Padding="5">Rejected</TextBlock>
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Row="3"  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="13*"></RowDefinition>
+                                    <RowDefinition Height="87*"></RowDefinition>
+                                    <RowDefinition Height="30*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="120*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="120*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Viewbox   HorizontalAlignment="Center"   VerticalAlignment="Center" >
+                                        <Image Source="Images/pendingCircule.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                                    </Viewbox>
+                                    <Viewbox  HorizontalAlignment="Center"   VerticalAlignment="Center" >
+                                        <TextBlock x:Name="PendingItem" Width="auto" Height="auto" FontSize="10" Padding="9" Foreground="White"  >50%</TextBlock>
+                                    </Viewbox>
+                                </Grid>
+                                <Viewbox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="auto" Width="auto" >
+                                    <TextBlock  FontSize="20"  FontWeight="Medium" VerticalAlignment="Center" Foreground="#FF514F4F" Padding="5">Pending</TextBlock>
+                                </Viewbox>
+
+                                <Grid Grid.Row="1" Grid.Column="3">
+                                    <Viewbox Grid.Row="2"  Grid.Column="2"  HorizontalAlignment="Center"   VerticalAlignment="Center" >
+                                        <Image Source="Images/inProgressCircule.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                                    </Viewbox>
+                                    <Viewbox Grid.Row="2"  Grid.Column="2"  HorizontalAlignment="Center"   VerticalAlignment="Center" >
+                                        <TextBlock x:Name="InProgressItem" Width="auto" Height="auto" FontSize="10" Padding="9" Foreground="White" >1.5%</TextBlock>
+                                    </Viewbox>
+                                </Grid>
+                                <Viewbox Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="auto" Width="auto">
+                                    <TextBlock  FontSize="20"  FontWeight="Medium" VerticalAlignment="Center" Foreground="#FF514F4F" Padding="5">In-Progress</TextBlock>
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Row="5"  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="60*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"   HorizontalAlignment="Center"  Margin="0" VerticalAlignment="Center">
+                                    <Button x:Name="btnGenerateReport" Content="Generate New Report" Controls:ControlsHelper.ContentCharacterCasing="Normal" Cursor="Hand" Width="250" Height="50px" FontSize="20px" BorderThickness="0" Background="Gray" Foreground="White" />
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Row="7">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="60*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"   HorizontalAlignment="Center"  Margin="0" VerticalAlignment="Center">
+                                    <Button x:Name="btnViewReports" Content="View Older Reports" Controls:ControlsHelper.ContentCharacterCasing="Normal" Cursor="Hand" Width="250" Height="50px" FontSize="20px" BorderThickness="0" Background="DimGray" Foreground="White" />
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <!--Add User-->
+                <Grid x:Name="AddUserGridVisibility" Grid.Row="5"  Visibility="hidden" Background="#f8f8f8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        <RowDefinition Height="40*"></RowDefinition>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        <RowDefinition Height="40*"></RowDefinition>
+                        <RowDefinition Height="50*"></RowDefinition>
+                        <RowDefinition Height="40*"></RowDefinition>
+                        <RowDefinition Height="50*"></RowDefinition>
+                        <RowDefinition Height="40*"></RowDefinition>
+                        <RowDefinition Height="10*"></RowDefinition>
+                        <RowDefinition Height="40*"></RowDefinition>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        <RowDefinition Height="40*"></RowDefinition>
+                        <RowDefinition Height="45*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="203*"></ColumnDefinition>
+                        <ColumnDefinition Width="920*"></ColumnDefinition>
+                        <ColumnDefinition Width="203*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="400*"></ColumnDefinition>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="410*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                            
+                        
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160*"></ColumnDefinition>
+                            <ColumnDefinition Width="230*"></ColumnDefinition>
+                            <ColumnDefinition Width="140*"></ColumnDefinition>
+                            <ColumnDefinition Width="160*"></ColumnDefinition>
+                            <ColumnDefinition Width="230*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--User Role-->
+                        <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBlock FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#FF6E6E6E">Select User Role</TextBlock>
+                        </Viewbox>
+                        <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <ComboBox x:Name="cmbUserRole"  FontSize="23"  FontWeight="Medium" Foreground="#FF6E6E6E" Background="White" Width="300" Height="50" Padding="10,2,0,5" Cursor="Hand" BorderBrush="#FFFFBE0F" OpacityMask="White" SelectionChanged="cmbUserRole_SelectionChanged">
+                                <ComboBoxItem Cursor="Hand">Administrator</ComboBoxItem>
+                                <ComboBoxItem Cursor="Hand" IsSelected="True">Supervisor</ComboBoxItem>
+                                <ComboBoxItem Cursor="Hand">Secure User</ComboBoxItem>
+                            </ComboBox>
+                        </Viewbox>
+                        <!--EmpNo-->
+                        <Viewbox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBlock FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#FF6E6E6E">EMP Number</TextBlock>
+                        </Viewbox>
+                        <Viewbox Grid.Column="4" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" >
+                            <TextBox x:Name="txtEMPNo"  FontWeight="Medium"  HorizontalAlignment="Left" Height="50"   TextWrapping="NoWrap" VerticalAlignment="Center" Width="300" FontSize="23" MinHeight="30" Padding="0,5,0,0"  MaxLength="40" BorderThickness="2" BorderBrush="#FFFFBE0F" Foreground="#FF6E6E6E" CaretBrush="#FF00BCD5" Controls:ControlsHelper.FocusBorderBrush="#FF32CCFE"  OpacityMask="White" RenderTransformOrigin="0.5,0.5"  SelectionBrush="#FF00BCD5" >
+                                <TextBox.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleX="1.386"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="0.726"/>
+                                    </TransformGroup>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Row="5" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160*"></ColumnDefinition>
+                            <ColumnDefinition Width="230*"></ColumnDefinition>
+                            <ColumnDefinition Width="140*"></ColumnDefinition>
+                            <ColumnDefinition Width="160*"></ColumnDefinition>
+                            <ColumnDefinition Width="230*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--frist name-->
+                        <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBlock FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#FF6E6E6E">First Name</TextBlock>
+                        </Viewbox>
+                        <Viewbox Grid.Column="1" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" >
+                            <TextBox x:Name="txtFname"  FontWeight="Medium"  HorizontalAlignment="Left" Height="50"   TextWrapping="NoWrap" VerticalAlignment="Center" Width="300" FontSize="23" MinHeight="30" Padding="0,5,0,0"  MaxLength="40" BorderThickness="2" BorderBrush="#FFFFBE0F" Foreground="#FF6E6E6E" CaretBrush="#FF00BCD5" Controls:ControlsHelper.FocusBorderBrush="#FF32CCFE"  OpacityMask="White" RenderTransformOrigin="0.5,0.5"  SelectionBrush="#FF00BCD5" TextChanged="txtFname_TextChanged" >
+                                <TextBox.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleX="1.386"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="0.726"/>
+                                    </TransformGroup>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                        </Viewbox>
+                        <!--last name-->
+                        <Viewbox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBlock FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#FF6E6E6E">Last Name</TextBlock>
+                        </Viewbox>
+                        <Viewbox Grid.Column="4" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" >
+                            <TextBox x:Name="txtLname"  FontWeight="Medium"  HorizontalAlignment="Left" Height="50"   TextWrapping="NoWrap" VerticalAlignment="Center" Width="300" FontSize="23" MinHeight="30" Padding="0,5,0,0"  MaxLength="40" BorderThickness="2" BorderBrush="#FFFFBE0F" Foreground="#FF6E6E6E" CaretBrush="#FF00BCD5" Controls:ControlsHelper.FocusBorderBrush="#FF32CCFE"  OpacityMask="White" RenderTransformOrigin="0.5,0.5"  SelectionBrush="#FF00BCD5" Background="White" >
+                                <TextBox.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleX="1.386"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="0.726"/>
+                                    </TransformGroup>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                        </Viewbox>
+                    </Grid>
+                    
+                    <Grid Grid.Row="7" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160*"></ColumnDefinition>
+                            <ColumnDefinition Width="230*"></ColumnDefinition>
+                            <ColumnDefinition Width="140*"></ColumnDefinition>
+                            <ColumnDefinition Width="160*"></ColumnDefinition>
+                            <ColumnDefinition Width="230*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--Username-->
+                        <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBlock FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#FF6E6E6E">Username</TextBlock>
+                        </Viewbox>
+                        <Viewbox Grid.Column="1" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" >
+                            <TextBox x:Name="txtUname"  FontWeight="Medium"  HorizontalAlignment="Left" Height="50"   TextWrapping="NoWrap" VerticalAlignment="Center" Width="300" FontSize="23" MinHeight="30" Padding="0,5,0,0"  MaxLength="40" BorderThickness="2" BorderBrush="#FFFFBE0F" Foreground="#FF6E6E6E" CaretBrush="#FF00BCD5" Controls:ControlsHelper.FocusBorderBrush="#FF32CCFE"  OpacityMask="White" RenderTransformOrigin="0.5,0.5"  SelectionBrush="#FF00BCD5" >
+                                <TextBox.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleX="1.386"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="0.726"/>
+                                    </TransformGroup>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                        </Viewbox>
+                        <!--Password-->
+                        <Viewbox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBlock FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#FF6E6E6E">Password</TextBlock>
+                        </Viewbox>
+                        <Viewbox Grid.Column="4" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" >
+                            <PasswordBox x:Name="txtPword"  FontWeight="Medium"  HorizontalAlignment="Left" Height="50"   VerticalAlignment="Center" Width="300" FontSize="23" MinHeight="30" Padding="0,5,0,0"  MaxLength="40" BorderThickness="2" BorderBrush="#FFFFBE0F" Foreground="#FF6E6E6E" CaretBrush="#FF00BCD5" Controls:ControlsHelper.FocusBorderBrush="#FF32CCFE"  OpacityMask="White" RenderTransformOrigin="0.5,0.5"  SelectionBrush="#FF00BCD5" Background="White" />
+                                                       
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Row="9" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="530*"></ColumnDefinition>
+                            <ColumnDefinition Width="160*"></ColumnDefinition>
+                            <ColumnDefinition Width="230*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--Username-->
+                        <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBlock FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#FF6E6E6E">Confirm Password</TextBlock>
+                        </Viewbox>
+                        <Viewbox Grid.Column="2" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" >
+                            <PasswordBox x:Name="txtConfirmPword"  FontWeight="Medium"  HorizontalAlignment="Left" Height="50"   VerticalAlignment="Center" Width="300" FontSize="23" MinHeight="30" Padding="0,5,0,0"  MaxLength="40" BorderThickness="2" BorderBrush="#FFFFBE0F" Foreground="#FF6E6E6E" CaretBrush="#FF00BCD5" Controls:ControlsHelper.FocusBorderBrush="#FF32CCFE"  OpacityMask="White" RenderTransformOrigin="0.5,0.5"  SelectionBrush="#FF00BCD5" />
+
+                        </Viewbox>                        
+                    </Grid>
+                    <!--Error message-->
+                    <Grid Grid.Row="11" Grid.Column="1">
+                        <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" >
+                            <Label x:Name="MessagePwConfirm" Visibility="Hidden" Content="Password does not match the confirm password." FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#f54337" />
+                        </Viewbox>
+                        <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" >
+                            <Label x:Name="MessageUserDetect" Visibility="Hidden" Content="User already exists in the system" FontSize="23" Padding="0,8,0,0" FontWeight="Medium" Height="50px" Width="auto" VerticalAlignment="Center" Foreground="#f54337" />
+                        </Viewbox>
+                    </Grid>
+                    <!--submit button-->
+                    <Grid Grid.Row="12" Grid.Column="1">
+                        <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center" >
+                            <Button x:Name="btnAddUser" Padding="0,0,0,2" Content="Add User" Controls:ControlsHelper.ContentCharacterCasing="Normal" Cursor="Hand" Width="150px" Height="40px" FontSize="23px" BorderThickness="0" Background="#ffbe0f" Foreground="White" Click="btnAddUser_Click"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>

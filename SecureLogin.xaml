@@ -1,0 +1,166 @@
+﻿<Controls:MetroWindow x:Class="Advantis.SecureLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Advantis"
+                mc:Ignorable="d"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="MainWindow" Height="768" Width="1366" WindowStyle="None"  WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IgnoreTaskbarOnMaximize="True" ShowInTaskbar="False" ShowTitleBar="False" IsCloseButtonEnabled="True" IsMinButtonEnabled="False" IsMaxRestoreButtonEnabled="False" ShowCloseButton="True">
+    <Controls:MetroWindow.Background>
+        <SolidColorBrush Opacity=".7" Color="#192a32"/>
+    </Controls:MetroWindow.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Start SecureLogin-->
+        <Grid Grid.Row="0" Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="184*"></RowDefinition>
+                <RowDefinition Height="400*"></RowDefinition>
+                <RowDefinition Height="184*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="418*"></ColumnDefinition>
+                <ColumnDefinition Width="530*"></ColumnDefinition>
+                <ColumnDefinition Width="418*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+           <!--<Grid Grid.Row="0" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"></RowDefinition>
+                    <RowDefinition Height="50*"></RowDefinition>
+                    <RowDefinition Height="114*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="348*"></ColumnDefinition>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Row="1" Grid.Column="1"  Margin="0,0,0,0" VerticalAlignment="Bottom" Cursor="Hand" >
+                    <Image x:Name="closeSecureLogin" RenderOptions.BitmapScalingMode="HighQuality" Source="Images/closeWindow.png" Stretch="Fill" />
+                </Viewbox>
+            </Grid>-->
+            <Grid Grid.Row="1" Grid.Column="1" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100*"></RowDefinition>
+                    <RowDefinition Height="350*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"></RowDefinition>
+                        <RowDefinition Height="70*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70*"></ColumnDefinition>
+                        <ColumnDefinition Width="440*"></ColumnDefinition>
+                        <ColumnDefinition Width="70*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Row="0" Grid.Column="3"  Margin="30,-25,-25,8" VerticalAlignment="Bottom" Cursor="Hand" >
+                        <Image x:Name="closeSecureLogin" RenderOptions.BitmapScalingMode="HighQuality" Source="Images/closeWindow.png" Stretch="Fill" />
+                    </Viewbox>
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70*"></ColumnDefinition>
+                            <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="360*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox  Grid.Column="0"  HorizontalAlignment="Center"  Margin="0,0,0,0" VerticalAlignment="Center" >
+                            <Image x:Name="SecureLoginLogo"   Source="Images/secureIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+                        </Viewbox>
+                        <Grid Grid.Column="2" Background="#FF302F2F"></Grid>
+                        <Grid Grid.Column="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"></RowDefinition>
+                                <RowDefinition Height="60*"></RowDefinition>
+                                <RowDefinition Height="5*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="1">
+                                <Viewbox VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <TextBlock FontSize="40" Padding="20,0,0,0" FontWeight="Bold" Height="60px" Width="400px" VerticalAlignment="Center" Foreground="#FF131313">Secure Login</TextBlock>
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="220*"></RowDefinition>
+                        <RowDefinition Height="130*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70*"></RowDefinition>
+                            <RowDefinition Height="50*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                            <RowDefinition Height="50*"></RowDefinition>
+                            <RowDefinition Height="25*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70*"></ColumnDefinition>
+                            <ColumnDefinition Width="150*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="270*"></ColumnDefinition>
+                            <ColumnDefinition Width="70*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1">
+                            <TextBlock FontSize="28" Padding="0" FontWeight="Medium" Height="50px" Width="150px" VerticalAlignment="Center" Foreground="#FF6E6E6E">Username</TextBlock>
+                        </Viewbox>
+                        <Viewbox HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Grid.Row="1" Grid.Column="3">
+                            <TextBox x:Name="UserNameSecureLogin"  FontWeight="Medium"  HorizontalAlignment="Left" Height="50"   TextWrapping="NoWrap" VerticalAlignment="Center" Width="270" FontSize="28" MinHeight="30" Padding="0"  MaxLength="20" BorderThickness="2" BorderBrush="#FF5CB85C" CaretBrush="#FF151515" Controls:ControlsHelper.FocusBorderBrush="#FF32CCFE"  OpacityMask="White" RenderTransformOrigin="0.5,0.5" TabIndex="1" SelectionBrush="#FF5CB85C" >
+                                <TextBox.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleX="1.386"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="0.726"/>
+                                    </TransformGroup>
+                                </TextBox.RenderTransform>
+                            </TextBox>
+                        </Viewbox>
+                        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1">
+                            <TextBlock FontSize="28" Padding="0" FontWeight="Medium" Height="50px" Width="150px" VerticalAlignment="Center" Foreground="#FF6E6E6E">Password</TextBlock>
+                        </Viewbox>
+                        <Viewbox HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Grid.Row="3" Grid.Column="3">
+                            <PasswordBox x:Name="PasswordSecureLogin"  FontWeight="Medium"  HorizontalAlignment="Left" Height="50"   VerticalAlignment="Center" Width="270" FontSize="28" MinHeight="30" Padding="0"  MaxLength="20" BorderThickness="2" BorderBrush="#FF5CB85C" CaretBrush="#FF151515" Controls:ControlsHelper.FocusBorderBrush="#FF32CCFE"  OpacityMask="White" RenderTransformOrigin="0.5,0.5" TabIndex="1" SelectionBrush="#FF5CB85C" />
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50*"></RowDefinition>
+                            <RowDefinition Height="50*"></RowDefinition>
+                            <RowDefinition Height="30*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70*"></ColumnDefinition>
+                            <ColumnDefinition Width="380*"></ColumnDefinition>
+                            <ColumnDefinition Width="70*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1">
+                            <TextBlock Visibility="Hidden"  x:Name="MainLoginErrorMessage" Width="440" Text="Username or password incorrect."  TextWrapping="Wrap" FontSize="20" Height="35"  FontWeight="Regular" Foreground="Red"/>
+                        </Viewbox>
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="170*"></ColumnDefinition>
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+                                <ColumnDefinition Width="10*"></ColumnDefinition>
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Viewbox  Grid.Column="1" HorizontalAlignment="Right"  Margin="0" VerticalAlignment="Center">
+                                <Button x:Name="CloseloginSecure" Content="Cancel" Cursor="Hand" Width="150" Controls:ControlsHelper.ContentCharacterCasing="Normal" Height="60px" FontSize="25px" BorderThickness="0" Background="#FF9B9890" Foreground="White" />
+                            </Viewbox>
+                            <Viewbox  Grid.Column="3" HorizontalAlignment="Right"  Margin="0" VerticalAlignment="Center">
+                                <Button x:Name="loginSecure"  Content="Login" Cursor="Hand" Width="150" Height="60px" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontSize="25px" BorderThickness="0" Background="#FF5CB85C" Foreground="White" RenderTransformOrigin="0.34,0.34" Click="loginSecure_Click" />
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>

@@ -1,0 +1,294 @@
+﻿<Controls:MetroWindow x:Class="Advantis.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Advantis"
+        mc:Ignorable="d"
+         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="MainWindow" Height="768" Width="1366" WindowStyle="None"  WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" IgnoreTaskbarOnMaximize="True" ShowInTaskbar="False" ShowTitleBar="False" IsCloseButtonEnabled="True" IsMinButtonEnabled="False" IsMaxRestoreButtonEnabled="False" ShowCloseButton="False">
+    <Controls:MetroWindow.Resources>
+        <Image x:Key="DisabledSuccessBarcode1" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="SuccessBarcode1" Source="Images/Signal/sucsessSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledRejectBarcode1" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="RejectBarcode1" Source="Images/Signal/rejectedSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledSuccessWeight" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="SuccessWeight" Source="Images/Signal/sucsessSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledRejectWeight" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="RejectWeight" Source="Images/Signal/rejectedSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledSuccessBarcode2" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="SuccessBarcode2" Source="Images/Signal/sucsessSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledRejectBarcode2" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="RejectBarcode2" Source="Images/Signal/rejectedSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledAATrack" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="AATrack" Source="Images/Signal/AATrackSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledBBTrack" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="BBTrack" Source="Images/Signal/BBTrackSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledCCTrack" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="CCTrack" Source="Images/Signal/CCTrackSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledStock" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="Stock" Source="Images/Signal/StockSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledPrintSuccess" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="PrintSuccess" Source="Images/Signal/sucsessSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="DisabledPrintReject" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="PrintReject" Source="Images/Signal/rejectedSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <!--Convay section-->
+        <Image x:Key="BarcodeSectionOne" Width="auto" Height="auto" Source="Images/ConvayFlow/Bar_01.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="WeightSectionOne" Width="auto" Height="auto" Source="Images/ConvayFlow/Bar_02.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="BarcodeSectionTwo" Width="auto" Height="auto" Source="Images/ConvayFlow/Bar_03.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="BarcodeSectionThree" Width="auto" Height="auto" Source="Images/ConvayFlow/Bar_04.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="BarBarcodeOneSideBar" Width="auto" Height="auto" Source="Images/ConvayFlow/barStraight.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="BarBarcodeSectionOne" Width="auto" Height="auto" Source="Images/ConvayFlow/barStraight.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="BarBarcodeSectionStore" Width="auto" Height="auto" Source="Images/ConvayFlow/barStraight.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+
+                            
+                                     
+        <!--Printer-->
+        <Image x:Key="DisabledRePrintBarcode" Source="Images/Signal/DisabledPrinterIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="RePrintBarcode" Source="Images/Signal/ErrorPrinterIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <!--Signal button-->
+        <Image x:Key="ProgressBarUIIcon" Margin="100" Source="Images/Icon/ProgressIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="ProgressBarUserIcon" Margin="100" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="MenuItemProgressDb" Margin="100" Source="Images/Icon/MenuIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="PrintBarcode" Margin="100" Source="Images/Icon/BarcodeIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="ReportProgressUser" Margin="100" Source="Images/Icon/ReportIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+        <Image x:Key="LogoutProgressUser" Margin="100" Source="Images/Icon/LogoutIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+
+        
+                
+                
+                
+        <!--remove button mouse over effect-->
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Arrow" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="false">
+                                <Setter Property="Opacity" Value="1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Set Column Heder Text Letter Case-->
+        <Style x:Key="MyColumnHeader"
+           BasedOn="{StaticResource MetroDataGridColumnHeader}"
+           TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Controls:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+        </Style>
+        <Style x:Key="DataGridRowStyle" TargetType="{x:Type DataGridCell}" >
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="#1a222f"/>
+                    <Setter  Property="Background" Value="#e5ebf2"/>
+                    <Setter Property="BorderBrush" Value="#fff"/>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Controls:MetroWindow.Resources>
+
+    <!-- Flyout window .................................................. -->
+
+    
+
+    <!-- end Flyout window .................................................. -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="768*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1366*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"></RowDefinition>
+                <RowDefinition Height="738*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--******************************************************************start top title bar in Progress UI bgColor: #397ea5******************************************************************-->
+            <Grid Grid.Row="0" Background="#397ea5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="46*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1315*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button x:Name="btnProgressBarUIIcon"  Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072">
+                        <DynamicResource ResourceKey="ProgressBarUIIcon"/>
+                    </Button>
+                </Viewbox>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="280*"></ColumnDefinition>
+                        <ColumnDefinition Width="877*"></ColumnDefinition>
+                        <ColumnDefinition Width="55*"></ColumnDefinition>
+                        <ColumnDefinition Width="46*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"></RowDefinition>
+                            <RowDefinition Height="24*"></RowDefinition>
+                            <RowDefinition Height="8*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <TextBlock x:Name="txtTopMenuTitle"  FontSize="35px"  FontWeight="Medium"  Foreground="White" Text="Progress" FontFamily="verdana"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"></RowDefinition>
+                            <RowDefinition Height="24*"></RowDefinition>
+                            <RowDefinition Height="8*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Viewbox Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" >
+                            <TextBlock x:Name="txtUserIconDisplayText" Cursor="Hand" FontSize="35px" FontFamily="verdana"  FontWeight="Medium"  Foreground="White" Text="Supervisor" MouseLeftButtonDown="txtUserIconDisplayText_Click"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Column="3">
+                        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Button x:Name="btnProgressBarUserIcon" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnProgressBarUserIcon_Click" >
+                                <DynamicResource ResourceKey="ProgressBarUserIcon"/>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" x:Name="GridMainPrgressSection"  MouseLeftButtonDown="GridMainPrgressSection_Click" Background="#fff">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                    <ColumnDefinition Width="1320*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!--******************************************************************Start Navigation Side Menu bgColor: #06202d******************************************************************-->
+                <Grid x:Name="GridSideMenuBar"  Grid.Column="0" Background="#06202d">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"></ColumnDefinition>
+                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                        <ColumnDefinition Width="8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="40*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="373*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Viewbox  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnMenuItemProgressDb" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                <DynamicResource ResourceKey="MenuItemProgressDb"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnPrintBarcode" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072"  >
+                                <DynamicResource ResourceKey="PrintBarcode"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnReportProgressUser" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                <DynamicResource ResourceKey="ReportProgressUser"/>
+                            </Button>
+                        </Viewbox>
+                        <Viewbox  Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Button x:Name="btnLogoutProgressUser" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnLogoutProgressUser_Click" >
+                                <DynamicResource ResourceKey="LogoutProgressUser"/>
+                            </Button>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+                <!--******************************************************************//Endt Navigation Side Menu******************************************************************-->
+                <Grid Grid.Column="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80*"></RowDefinition>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        <RowDefinition Height="633*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!-- Main User Progress Dashboard top Logo Bar bgColor: #e5ebf2-->
+                    <Grid x:Name="GridAllHeaderBackgroundColorVisible" Background="#e5ebf2" Visibility="Visible" Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                            <ColumnDefinition Width="300*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="805*"></ColumnDefinition>
+                            <ColumnDefinition Width="100*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--Logo & Title section-->
+                        <Viewbox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0" Width="auto">
+                            <Image Height="auto" Width="auto"  Source="Images/ADVANTIS-LOGOS1.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                        </Viewbox>
+                        <Viewbox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left"  >
+                            <TextBlock   FontSize="35px" Padding="20"  FontWeight="Bold"  Foreground="Black" Text="Goods Handling and Management System"/>
+                        </Viewbox>
+                        <!--//Logo & Title section-->
+                        <!--Logout section-->
+                        <Grid x:Name="GridAllLogoutUserProgress" Visibility="Hidden"  Grid.Column="4" MouseLeftButtonDown="GridAllLogoutUserProgress_Click">
+                            <!--grid Shedow effect-->
+                            <Grid.Effect>
+                                <DropShadowEffect BlurRadius="15" Direction="-90" Color="Gray" RenderingBias="Quality" ShadowDepth="2"  Opacity="0.5"/>
+                            </Grid.Effect>
+                            <!--//grid Shedow effect-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30*"></RowDefinition>
+                                <RowDefinition Height="40*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid   Cursor="Hand" Grid.Row="0" Background="White" HorizontalAlignment="Left" Width="100">
+                                <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center"  >
+                                    <TextBlock x:Name="txtAllLogoutAdminText" Cursor="Hand"  FontSize="35px" Padding="20"  FontWeight="Bold"  Foreground="Black" Text="Logout"/>
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                        <!--// Logout section-->
+                    </Grid>
+                    <!--// Main User Progress Dashboard top Logo Bar bgColor: #e5ebf2-->
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="1280*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="340*"></RowDefinition>
+                                <RowDefinition Height="20*"></RowDefinition>
+                                <RowDefinition Height="340*"></RowDefinition>
+                                <RowDefinition Height="20*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+
+    <!--MouseLeftButtonDown="txtTopLoginAdminDisplayText_Click"-->
+</Controls:MetroWindow>

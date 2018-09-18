@@ -1,0 +1,1296 @@
+﻿<Controls:MetroWindow x:Class="Advantis.SupervisorModule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Advantis"
+       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="MainWindow" Height="768" Width="1366" WindowStyle="None"  WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IgnoreTaskbarOnMaximize="False" ShowInTaskbar="False" ShowTitleBar="False" IsCloseButtonEnabled="False" IsMinButtonEnabled="False" IsMaxRestoreButtonEnabled="False" ShowCloseButton="False">
+    <Controls:MetroWindow.Resources>
+        <!--supervisor-->
+        <Image x:Key="ImgHomeS" Margin="100" Source="Images/Icon/HomeGreay.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ImgMenuBarS" Margin="100" Source="Images/Icon/MenuIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ImgProgressS" Margin="100" Source="Images/Icon/ProgressIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ImgBarcodesS" Margin="100" Source="Images/Icon/BarcodeIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ImgReportsS" Margin="100" Source="Images/Icon/ReportIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ImgUploadDataS" Margin="100" Source="Images/Icon/UploadIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ImgUsersS" Margin="100" Source="Images/Icon/UserMnagementicon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="ImgLogoutS" Margin="100" Source="Images/Icon/LogoutIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+
+
+        <!--Left Menu Bar-->
+        <Image x:Key="LeftImgHomeS" Margin="100" Source="Images/Icon/HomeGreay.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftImgProgressS" Margin="100" Source="Images/Icon/ProgressIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftImgBarcodesS" Margin="100" Source="Images/Icon/BarcodeIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftImgReportsS" Margin="100" Source="Images/Icon/ReportIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftImgUploadDataS" Margin="100" Source="Images/Icon/UploadIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftImgUsersS" Margin="100" Source="Images/Icon/UserMnagementicon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="LeftImgLogoutS" Margin="100" Source="Images/Icon/LogoutIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+
+        <!--SelectTopBarWhiteIcon-->
+        <Image x:Key="SelectImgHomeS" Margin="100" Source="Images/Icon/HomeWhite.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="SelectImgProgressS" Margin="100" Source="Images/Icon/SelectProgressIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="SelectImgBarcodesS" Margin="100" Source="Images/Icon/SelectBarcodeIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="SelectImgReportsS" Margin="100" Source="Images/Icon/SelectReportIcon.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <!--Dashboardtop Bar display Icon-->
+
+        <Image x:Key="ImgUsersWhiteViewS" Margin="100" Source="Images/Icon/AWhiteSelectUser.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="RemoveIconS" Margin="100" Source="Images/Icon/Remove.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <!--Default Signal section-->
+        <Image x:Key="BarcodeOneSignalS"  Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="WeightSignalS"  Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="BarcodeTwoSignalS"  Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="BarcodeThreeSignalS"  Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="PrinterSignalS" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+
+        <!--Default Signal section two-->
+        <Image x:Key="BarcodeOneSignalNewS"  Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="WeightSignalNewS"  Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="BarcodeTwoSignalNewS"  Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="BarcodeThreeSignalNewS"  Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+        <Image x:Key="PrinterSignalNewS" Source="Images/Signal/disabledSignal.png" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"/>
+
+        <!--remove button mouse over effect-->
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Arrow" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="false">
+                                <Setter Property="Opacity" Value="1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="MyColumnHeader"  BasedOn="{StaticResource MetroDataGridColumnHeader}" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="Controls:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+        </Style>
+        <Style x:Key="DataGridRowStyle" TargetType="{x:Type DataGridCell}" >
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Foreground" Value="#1a222f"/>
+                    <Setter  Property="Background" Value="#e5ebf2"/>
+                    <Setter Property="BorderBrush" Value="#fff"/>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="5"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Controls:MetroWindow.Resources>
+    <!--***************************************************************************-->
+    <!--******************************************************************Flyout window******************************************************************-->
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl >
+            <Controls:Flyout x:Name="navigationMenuSupervisor"  x:FieldModifier="public"  Position="Left" Width="200" AnimateOpacity="True" Opacity="0.98" IsOpen="False" RenderTransformOrigin="0.5,0.5" Foreground="#dadce1" Background="#232730">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                        <RowDefinition Height="648*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Viewbox Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                        <Image Height="auto" Width="auto"  Source="Images/Logo/Logo.jpg" Margin="0" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                    </Viewbox>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"></ColumnDefinition>
+                            <ColumnDefinition Width="30*"></ColumnDefinition>
+                            <ColumnDefinition Width="12*"></ColumnDefinition>
+                            <ColumnDefinition Width="160*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="348*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+
+                        <Grid Grid.Column="1" Grid.Row="0">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button  Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnHomeS_Click">
+                                    <DynamicResource ResourceKey="LeftImgHomeS"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="0">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock  Padding="0,12,0,12" Cursor="Hand" FontSize="15px"  FontWeight="Medium"  Foreground="#dadce1" Text="Home" MouseLeftButtonDown="btnHomeS_Click"/>
+                            </Viewbox>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button  Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnProgressS_Click" >
+                                    <DynamicResource ResourceKey="LeftImgProgressS"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="2">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock  Padding="0,12,0,12" Cursor="Hand" FontSize="15px"  FontWeight="Medium"  Foreground="#dadce1" Text="Progress" MouseLeftButtonDown="btnProgressS_Click"/>
+                            </Viewbox>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="4">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button  Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnBarcodesS_Click" >
+                                    <DynamicResource ResourceKey="LeftImgBarcodesS"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="4">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock  Padding="0,12,0,12" Cursor="Hand" FontSize="15px"  FontWeight="Medium"  Foreground="#dadce1" Text="Barcodes" MouseLeftButtonDown="btnBarcodesS_Click" />
+                            </Viewbox>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Grid.Row="6">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button  Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnReportsS_Click">
+                                    <DynamicResource ResourceKey="LeftImgReportsS"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="6">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock  Padding="0,12,0,12" Cursor="Hand" FontSize="15px"  FontWeight="Medium"  Foreground="#dadce1" Text="Reports" MouseLeftButtonDown="btnReportsS_Click"/>
+                            </Viewbox>
+                        </Grid>
+
+
+                        <Grid Grid.Column="1" Grid.Row="8">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button  Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072"  Click="btnLogoutS_Click">
+                                    <DynamicResource ResourceKey="LeftImgLogoutS"/>
+                                </Button>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Column="3" Grid.Row="8">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock Padding="0,12,0,12" Cursor="Hand" FontSize="15px"  FontWeight="Medium"  Foreground="#dadce1" Text="Logout"  MouseLeftButtonDown="btnLogoutS_Click"/>
+                            </Viewbox>
+                        </Grid>
+
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"></ColumnDefinition>
+                            <ColumnDefinition Width="120*"></ColumnDefinition>
+                            <ColumnDefinition Width="64*"></ColumnDefinition>
+                            <ColumnDefinition Width="8*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <Label Content="© copyright by"  Padding="0,12,15,12"  FontSize="15px"  FontWeight="Medium"  Foreground="#dadce1"  />
+                        </Viewbox>
+                        <Viewbox Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Left" >
+                            <Label Content="Nikini" Padding="0,12,0,12" FontFamily="Arial" FontSize="20px"  FontWeight="ExtraBold" VerticalAlignment="Center"  Foreground="Red"  Width="auto"  />
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+            </Controls:Flyout>
+
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+    <!--******************************************************************// end Flyout window******************************************************************-->
+    <Grid>
+        <!--SUPERVISOR WINDOW-->
+        <Grid x:Name="SupervisorMainWindow" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"></RowDefinition>
+                <RowDefinition Height="768*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48*"></ColumnDefinition>
+                <ColumnDefinition Width="1328*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Background="#20232c"></Grid>
+            <Grid Grid.Row="0"  Grid.Column="1" Background="#20232c">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="25*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1208*"></ColumnDefinition>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                    <ColumnDefinition Width="100*"></ColumnDefinition>
+                    <ColumnDefinition Width="30*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Row="1" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="auto">
+                    <Image Height="auto" Width="auto"  Source="Images/Icon/UserA.png"  RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                </Viewbox>
+                <Viewbox Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock x:Name="LoginUserTextS" Text="Hi, Smith" FontSize="18"  FontWeight="Medium"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                </Viewbox>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0" Background="#232730">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="9*"></ColumnDefinition>
+                    <ColumnDefinition Width="30*"></ColumnDefinition>
+                    <ColumnDefinition Width="9*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="53*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="15*"></RowDefinition>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="265*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Viewbox  Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Button x:Name="btnMenuBarS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnMenuBarS_Click"   >
+                            <DynamicResource ResourceKey="ImgMenuBarS"/>
+                        </Button>
+                    </Viewbox>
+                    <Viewbox  Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Button x:Name="btnHomeS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnHomeS_Click"   >
+                            <DynamicResource ResourceKey="ImgHomeS"/>
+                        </Button>
+                    </Viewbox>
+                    <Viewbox  Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Button x:Name="btnProgressS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnProgressS_Click" >
+                            <DynamicResource ResourceKey="ImgProgressS"/>
+                        </Button>
+                    </Viewbox>
+                    <Viewbox  Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Button x:Name="btnBarcodesS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnBarcodesS_Click"  >
+                            <DynamicResource ResourceKey="ImgBarcodesS"/>
+                        </Button>
+                    </Viewbox>
+                    <Viewbox  Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Button x:Name="btnReportsS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnReportsS_Click"   >
+                            <DynamicResource ResourceKey="ImgReportsS"/>
+                        </Button>
+                    </Viewbox>
+
+                    <Viewbox  Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Button x:Name="btnLogoutS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" Click="btnLogoutS_Click"  >
+                            <DynamicResource ResourceKey="ImgLogoutS"/>
+                        </Button>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1" Background="#f2f2f2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"></RowDefinition>
+                    <RowDefinition Height="30*"></RowDefinition>
+                    <RowDefinition Height="700*"></RowDefinition>
+                    <RowDefinition Height="20*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                    <ColumnDefinition Width="1250*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="1" Grid.Column="1" Background="#b7d07f">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2.5*"></RowDefinition>
+                        <RowDefinition Height="30*"></RowDefinition>
+                        <RowDefinition Height="2.5*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"></ColumnDefinition>
+                        <ColumnDefinition Width="1198*"></ColumnDefinition>
+                        <ColumnDefinition Width="30*"></ColumnDefinition>
+                        <ColumnDefinition Width="20*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <TextBlock x:Name="TopBarMenuItemTextS" Text="HOME" FontSize="20"  FontWeight="Normal"   Foreground="#ffffff" Padding="2" Width="auto"  />
+                    </Viewbox>
+                    <Viewbox  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0" Width="auto">
+                        <Button x:Name="btnMenuItemSelectIconS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                            <DynamicResource ResourceKey="SelectImgHomeS"/>
+                        </Button>
+                    </Viewbox>
+                </Grid>
+                <Grid  x:Name="GridMainWindowProcessFlowOnlyS" Visibility="Visible" Grid.Row="2" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300*"></RowDefinition>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        <RowDefinition Height="180*"></RowDefinition>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        <RowDefinition Height="160*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="100*"></RowDefinition>
+                            <RowDefinition Height="60*"></RowDefinition>
+                            <RowDefinition Height="60*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                <ColumnDefinition Width="25"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*"></RowDefinition>
+                                <RowDefinition Height="100*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <!--Arm 1-->
+                            <Viewbox Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                <Image Height="auto" Width="auto"  Source="Images/Convay/principalMad.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                            </Viewbox>
+                            <!--Arm 2-->
+                            <Grid Grid.Row="2" Grid.Column="9">
+                                <Viewbox Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/principalMad.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+                            </Grid>
+                            <!--Barcode Section 1-->
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <Viewbox  Grid.Column="0" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Button x:Name="btnBarcodeOneSignalProgressS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                        <DynamicResource ResourceKey="BarcodeOneSignalS"/>
+                                    </Button>
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Row="1" Grid.Column="1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/BarcodeScanner.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+                            </Grid>
+                            <!--Weight Section-->
+                            <Grid Grid.Row="0" Grid.Column="3">
+
+                                <Viewbox   Grid.Column="0" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Button x:Name="btnWeightSignalProgressS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                        <DynamicResource ResourceKey="WeightSignalS"/>
+                                    </Button>
+                                </Viewbox>
+                            </Grid>
+
+                            <Grid Grid.Row="1" Grid.Column="3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/ElectronicScales.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+
+                            </Grid>
+
+
+                            <Viewbox  Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                <Button x:Name="btnBarcodeTwoSignalProgressS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="BarcodeTwoSignalS"/>
+                                </Button>
+                            </Viewbox>
+                            <Grid Grid.Row="1" Grid.Column="7">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/BarcodeScanner.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+
+                            </Grid>
+
+                            <Viewbox  Grid.Row="0" Grid.Column="11" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                <Button x:Name="btnBarcodeThreeSignalProgressS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="BarcodeThreeSignalS"/>
+                                </Button>
+                            </Viewbox>
+                            <Grid Grid.Row="1" Grid.Column="11">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/BarcodeScanner.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+
+                            </Grid>
+
+                            <!--Inject Printer Section-->
+                            <Viewbox   Grid.Row="0" Grid.Column="13" HorizontalAlignment="Left" Margin="0" Width="auto">
+                                <Button x:Name="btnPrinterSignalProgressS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="PrinterSignalS"/>
+                                </Button>
+                            </Viewbox>
+                            <Grid Grid.Row="1" Grid.Column="13">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/InjectPrinter.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                <ColumnDefinition Width="1158*"></ColumnDefinition>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="5*"></RowDefinition>
+                                    <RowDefinition Height="50*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Row="2" Background="#3d3d3d" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Row="3" Background="#676767" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="422.2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="243.6*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="243.9*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="26.8*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="26.5*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="1"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="3"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="5"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="7"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="9"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="6" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                    <Grid Grid.Column="8" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                    <Grid Grid.Column="0" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                    <Grid Grid.Column="2" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                    <Grid Grid.Column="4" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                <ColumnDefinition Width="1158*"></ColumnDefinition>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="417.2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="233.6*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="233.6*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="16.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="16.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="1" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="2" Background="#3d3d3d" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="3" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <!--////////////////////-->
+                                <Grid Grid.Column="5" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="6" Background="#3d3d3d" Margin="0,-4,0,0" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="7" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <!--//////////////////-->
+                                <Grid Grid.Column="9" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="10" Background="#3d3d3d" Margin="0,-4,0,0" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="11" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <!--////////////-->
+                                <Grid Grid.Column="13" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="14" Background="#3d3d3d" Margin="0,-4,0,0" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="15" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <!--/////////////////////-->
+                                <Grid Grid.Column="17" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="18" Background="#3d3d3d" Margin="0,-4,0,0" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="19" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="630*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="630*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40*"></RowDefinition>
+                                <RowDefinition Height="170*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Background="#22b5ab">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*"></RowDefinition>
+                                    <RowDefinition Height="25*"></RowDefinition>
+                                    <RowDefinition Height="5*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                    <ColumnDefinition Width="380*"></ColumnDefinition>
+                                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Viewbox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                    <Button x:Name="AddNewBarcodeS" OverridesDefaultStyle="True" Padding="10" Cursor="Hand" Foreground="#6c6c6c"  Content="Print new"  FontSize="28" Background="#f4f4f4" Margin="0,5,0,0" Click="AddNewBarcodeS_Click"></Button>
+                                </Viewbox>
+                                <Viewbox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <TextBlock Text="BARCODES" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="2" Width="auto"  />
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Row="2" Background="White">
+                                <Viewbox  VerticalAlignment="Top" HorizontalAlignment="Center" >
+                                    <DataGrid x:Name="DataGridBarcodelistS" FontWeight="Medium" HeadersVisibility="None" Margin="20,0,20,20" FontSize="22" Width="1312" Height="288" ColumnHeaderStyle="{StaticResource MyColumnHeader}" CellStyle ="{StaticResource DataGridRowStyle}" Background="White" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected"   SelectionMode="Single"   GridLinesVisibility="All"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"  Foreground="#FF303D50"  >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn x:Name="BarcodeColumnS"  Width="1312"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40*"></RowDefinition>
+                                <RowDefinition Height="170*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Background="#f6c056">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*"></RowDefinition>
+                                    <RowDefinition Height="25*"></RowDefinition>
+                                    <RowDefinition Height="5*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                    <ColumnDefinition Width="380*"></ColumnDefinition>
+                                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Viewbox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                    <Rectangle x:Name="ViewReportS" Cursor="Hand"  Height="50" Margin="8" Stroke="White" VerticalAlignment="Top" Width="60" Fill="White" MouseLeftButtonDown="btnReportsS_Click">
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Visual="{StaticResource SelectImgReportsS}" Stretch="Fill"/>
+                                        </Rectangle.OpacityMask>
+                                    </Rectangle>
+                                </Viewbox>
+                                <Viewbox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <TextBlock Text="REPORTS" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="2" Width="auto"  />
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Row="2" Background="White">
+                                <Viewbox  VerticalAlignment="Top" HorizontalAlignment="Center" >
+                                    <DataGrid x:Name="DataGridReportlistS" FontWeight="Medium" HeadersVisibility="None" Margin="20,0,20,20" FontSize="22" Width="1312" Height="288" ColumnHeaderStyle="{StaticResource MyColumnHeader}" CellStyle ="{StaticResource DataGridRowStyle}" Background="White" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected"   SelectionMode="Single"   GridLinesVisibility="All"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"  Foreground="#FF303D50"  >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn x:Name="ReportColumnS"  Width="1312"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Grid Grid.Row="1" Background="White">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30*"></RowDefinition>
+                                <RowDefinition Height="200*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="292*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="292*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="292*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="292*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid  Grid.Column="0" Background="#4c92d7"></Grid>
+                                <Grid Grid.Column="2" Background="#4c92d7"></Grid>
+                                <Grid  Grid.Column="4" Background="#4c92d7"></Grid>
+                                <Grid  Grid.Column="6" Background="#4c92d7"></Grid>
+                                <Grid  Grid.Column="8" Background="#4c92d7"></Grid>
+                                <!--Errors-->
+                                <Grid Grid.Column="1" Background="#4c92d7">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="ERRORS" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+                                <!--Barcodes-->
+                                <Grid Grid.Column="3"  Background="#4c92d7">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="BARCODES" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+
+                                <!--Status-->
+                                <Grid Grid.Column="5" Background="#4c92d7">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="STATUS" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+
+                                <!--Date & Time-->
+                                <Grid Grid.Column="7" Background="#4c92d7">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="DATE AND TIME" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <Viewbox  VerticalAlignment="Top" HorizontalAlignment="Center" >
+                                    <DataGrid x:Name="DataGridReportInfoS" FontWeight="Medium" HeadersVisibility="None" Margin="20,0,20,20" FontSize="18" Width="2480" Height="248" ColumnHeaderStyle="{StaticResource MyColumnHeader}" CellStyle ="{StaticResource DataGridRowStyle}" Background="White" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected"   SelectionMode="Single"   GridLinesVisibility="All"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"  Foreground="#FF303D50"  >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn x:Name="ErrorInfoColumnS"  Width="620"/>
+                                            <DataGridTextColumn x:Name="BarcodeInfoColumnS"   Width="620"/>
+                                            <DataGridTextColumn x:Name="StatusInfoColumnS"  Width="620"/>
+                                            <DataGridTextColumn x:Name="DateTimeInfoColumnS"  Width="620"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="GridNewProccessS" Visibility="Hidden" Grid.Row="2" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="420*"></RowDefinition>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        <RowDefinition Height="240*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"></RowDefinition>
+                            <RowDefinition Height="100*"></RowDefinition>
+                            <RowDefinition Height="60*"></RowDefinition>
+                            <RowDefinition Height="60*"></RowDefinition>
+                            <RowDefinition Height="20*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                <ColumnDefinition Width="25"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="25*"></ColumnDefinition>
+                                <ColumnDefinition Width="183.6*"></ColumnDefinition>
+                                <ColumnDefinition Width="50*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50*"></RowDefinition>
+                                <RowDefinition Height="100*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <!--Arm 1-->
+                            <Viewbox Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                <Image Height="auto" Width="auto"  Source="Images/Convay/principalMad.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                            </Viewbox>
+                            <!--Arm 2-->
+                            <Grid Grid.Row="2" Grid.Column="9">
+                                <Viewbox Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/principalMad.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+                            </Grid>
+                            <!--Barcode Section 1-->
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <Viewbox  Grid.Column="0" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Button x:Name="btnBarcodeOneSignalProgressNewS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                        <DynamicResource ResourceKey="BarcodeOneSignalNewS"/>
+                                    </Button>
+                                </Viewbox>
+                            </Grid>
+                            <Grid Grid.Row="1" Grid.Column="1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/BarcodeScanner.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+                            </Grid>
+                            <!--Weight Section-->
+                            <Grid Grid.Row="0" Grid.Column="3">
+
+                                <Viewbox   Grid.Column="0" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Button x:Name="btnWeightSignalProgressNewS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                        <DynamicResource ResourceKey="WeightSignalNewS"/>
+                                    </Button>
+                                </Viewbox>
+                            </Grid>
+
+                            <Grid Grid.Row="1" Grid.Column="3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/ElectronicScales.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+
+                            </Grid>
+
+
+                            <Viewbox  Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                <Button x:Name="btnBarcodeTwoSignalProgressNewS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="BarcodeTwoSignalNewS"/>
+                                </Button>
+                            </Viewbox>
+                            <Grid Grid.Row="1" Grid.Column="7">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/BarcodeScanner.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+
+                            </Grid>
+
+                            <Viewbox  Grid.Row="0" Grid.Column="11" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                <Button x:Name="btnBarcodeThreeSignalProgressNewS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="BarcodeThreeSignalNewS"/>
+                                </Button>
+                            </Viewbox>
+                            <Grid Grid.Row="1" Grid.Column="11">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/BarcodeScanner.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+
+                            </Grid>
+
+                            <!--Inject Printer Section-->
+                            <Viewbox   Grid.Row="0" Grid.Column="13" HorizontalAlignment="Left" Margin="0" Width="auto">
+                                <Button x:Name="btnPrinterSignalProgressNewS" Cursor="Hand" Style="{StaticResource MyButton}" IsEnabled="True"  Height="auto" Width="auto" BorderBrush="Transparent" BorderThickness="0" Focusable="False"      Background="{x:Null}" RenderTransformOrigin="0.072,0.072" >
+                                    <DynamicResource ResourceKey="PrinterSignalNewS"/>
+                                </Button>
+                            </Viewbox>
+                            <Grid Grid.Row="1" Grid.Column="13">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="90*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Viewbox Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0" Width="auto">
+                                    <Image Height="auto" Width="auto"  Source="Images/Convay/InjectPrinter.png" Margin="0,10,0,10" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill"></Image>
+                                </Viewbox>
+
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                <ColumnDefinition Width="1158*"></ColumnDefinition>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                    <RowDefinition Height="5*"></RowDefinition>
+                                    <RowDefinition Height="50*"></RowDefinition>
+                                    <RowDefinition Height="10*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Row="2" Background="#3d3d3d" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Row="3" Background="#676767" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="422.2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="243.6*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="243.9*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="26.8*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="26.5*"></ColumnDefinition>
+                                        <ColumnDefinition Width="40*"></ColumnDefinition>
+                                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="1"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="3"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="5"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="7"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="9"  Background="#3d3d3d" ></Grid>
+                                    <Grid Grid.Column="6" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                    <Grid Grid.Column="8" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                    <Grid Grid.Column="0" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                    <Grid Grid.Column="2" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                    <Grid Grid.Column="4" Background="#676767">
+                                        <Grid.Effect>
+                                            <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                        </Grid.Effect>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                                <ColumnDefinition Width="1158*"></ColumnDefinition>
+                                <ColumnDefinition Width="20*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="417.2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="233.6*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="233.6*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="16.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="16.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="40*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="1" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="2" Background="#3d3d3d" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="3" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <!--////////////////////-->
+                                <Grid Grid.Column="5" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="6" Background="#3d3d3d" Margin="0,-4,0,0" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="7" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <!--//////////////////-->
+                                <Grid Grid.Column="9" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="10" Background="#3d3d3d" Margin="0,-4,0,0" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="11" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <!--////////////-->
+                                <Grid Grid.Column="13" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="14" Background="#3d3d3d" Margin="0,-4,0,0" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="15" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <!--/////////////////////-->
+                                <Grid Grid.Column="17" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="18" Background="#3d3d3d" Margin="0,-4,0,0" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="10" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="Gray" Opacity="0.5"/>
+                                    </Grid.Effect>
+                                </Grid>
+                                <Grid Grid.Column="19" Background="#676767" >
+                                    <Grid.Effect>
+                                        <DropShadowEffect BlurRadius="30" Direction="-90" RenderingBias="Quality" ShadowDepth="8" Color="DimGray" Opacity="1"/>
+                                    </Grid.Effect>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid Grid.Row="1" Background="White">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30*"></RowDefinition>
+                                <RowDefinition Height="200*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="292*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="292*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="292*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                    <ColumnDefinition Width="292*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid  Grid.Column="0" Background="#4c92d7"></Grid>
+                                <Grid Grid.Column="2" Background="#4c92d7"></Grid>
+                                <Grid  Grid.Column="4" Background="#4c92d7"></Grid>
+                                <Grid  Grid.Column="6" Background="#4c92d7"></Grid>
+                                <Grid  Grid.Column="8" Background="#4c92d7"></Grid>
+                                <!--Errors-->
+                                <Grid Grid.Column="1" Background="#4c92d7">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="ERRORS" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+                                <!--Barcodes-->
+                                <Grid Grid.Column="3"  Background="#4c92d7">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="BARCODES" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+
+                                <!--Status-->
+                                <Grid Grid.Column="5" Background="#4c92d7">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="STATUS" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+
+                                <!--Date & Time-->
+                                <Grid Grid.Column="7" Background="#4c92d7">
+                                    <Viewbox  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="DATE AND TIME" FontSize="25"  FontWeight="Normal"   Foreground="#ffffff" Padding="5" Width="auto"  />
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Grid.Row="1">
+                                <Viewbox  VerticalAlignment="Top" HorizontalAlignment="Center" >
+                                    <DataGrid x:Name="DataGridReportInfoNewS" FontWeight="Medium" HeadersVisibility="None" Margin="20,0,20,20" FontSize="18" Width="2685" Height="417" ColumnHeaderStyle="{StaticResource MyColumnHeader}" CellStyle ="{StaticResource DataGridRowStyle}" Background="White" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected"   SelectionMode="Single"   GridLinesVisibility="All"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"  Foreground="#FF303D50"  >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn x:Name="ErrorInfoColumnNewS"  Width="620"/>
+                                            <DataGridTextColumn x:Name="BarcodeInfoColumnNewS"   Width="620"/>
+                                            <DataGridTextColumn x:Name="StatusInfoColumnNewS"  Width="620"/>
+                                            <DataGridTextColumn x:Name="DateTimeInfoColumnNewS"  Width="620"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </Viewbox>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="GridNewlyPrintedBarcodeS" Visibility="Hidden" Grid.Row="2" Grid.Column="1" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="700*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1000*"></ColumnDefinition>
+                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="2">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Rectangle x:Name="BarcodeAddS" Cursor="Hand"  Height="35" Margin="10" Stroke="White" VerticalAlignment="Top" Width="35" Fill="#6e6e6e" MouseLeftButtonDown="AddNewBarcodeS_Click">
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Visual="{StaticResource appbar_add}" Stretch="Fill"/>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="600*"></ColumnDefinition>
+                            <ColumnDefinition Width="20*"></ColumnDefinition>
+                            <ColumnDefinition Width="1000*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30*"></RowDefinition>
+                            <RowDefinition Height="650*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"></ColumnDefinition>
+                                <ColumnDefinition Width="85*"></ColumnDefinition>
+                                <ColumnDefinition Width="5*"></ColumnDefinition>
+                                <ColumnDefinition Width="60*"></ColumnDefinition>
+                                <ColumnDefinition Width="5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Viewbox Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock Text="List of barcodes" FontSize="20"  FontWeight="Normal" TextAlignment="Left"  Foreground="#989898" Padding="2" Width="auto"  />
+                            </Viewbox>
+                            <Viewbox Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock Text="21/07/2018" FontSize="20"  FontWeight="Normal" TextAlignment="Right"  Foreground="#989898" Padding="2" Width="auto"  />
+                            </Viewbox>
+                        </Grid>
+                        <Viewbox Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <DataGrid x:Name="DataGridReportInfoSectionS" FontWeight="Medium" HeadersVisibility="None"  Margin="20,0,20,20" FontSize="90" Padding="20" Width="2480" Height="3207" ColumnHeaderStyle="{StaticResource MyColumnHeader}" CellStyle ="{StaticResource DataGridRowStyle}" Background="White" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected"   SelectionMode="Single"   GridLinesVisibility="All"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"  Foreground="#FF303D50"  >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn x:Name="CheckboxColumnS"   Width="2480"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Viewbox>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Viewbox   VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock Text="Newly printed" FontSize="20"  FontWeight="Normal" TextAlignment="Left"  Foreground="#989898" Padding="2" Width="auto"  />
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Row="1" Grid.Column="2">
+                            <Viewbox  VerticalAlignment="Top" HorizontalAlignment="Center" >
+                                <DataGrid x:Name="DataGridNewlyPrintedBarcodelistS" FontWeight="Medium"  FontSize="11" Width="548" Margin="12" Height="433" ColumnHeaderStyle="{StaticResource MyColumnHeader}" CellStyle ="{StaticResource DataGridRowStyle}" Background="White" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected"   SelectionMode="Single"   GridLinesVisibility="All"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"    >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn x:Name="NewlyPrintedNameColumnS" Header="Name" Width="268"/>
+                                        <DataGridTextColumn x:Name="NewlyPrintedTimeColumnS" Header="Time" Width="268"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="GridReportsFlowS" Visibility="Hidden"  Grid.Row="2" Grid.Column="1"   Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35*"></RowDefinition>
+                        <RowDefinition Height="700*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1000*"></ColumnDefinition>
+                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <Viewbox Grid.Row="1" HorizontalAlignment="Center"  VerticalAlignment="Top">
+                        <DataGrid x:Name="DataGridReportInfoSectionNewS" FontWeight="Medium" HeadersVisibility="None"  Margin="20,0,20,20" FontSize="25" Padding="10" Width="2480" Height="1225" ColumnHeaderStyle="{StaticResource MyColumnHeader}" CellStyle ="{StaticResource DataGridRowStyle}" Background="White" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected"   SelectionMode="Single"   GridLinesVisibility="All"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True"  Foreground="#FF303D50"  >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn x:Name="CheckboxNewColumnS"   Width="100"/>
+                                <DataGridTextColumn x:Name="dowloadActionColumnS"   Width="200"/>
+                                <DataGridTextColumn x:Name="WorkStatusColumnS"  Width="300"/>
+                                <DataGridTextColumn x:Name="UserNameColumnS"  Width="500"/>
+                                <DataGridTextColumn x:Name="CommentSectionColumnS"  Width="490"/>
+                                <DataGridTextColumn x:Name="DiscriptonSectionColumnS"  Width="490"/>
+                                <DataGridTextColumn x:Name="DateTimeColumnS"  Width="400"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
